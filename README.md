@@ -17,6 +17,7 @@ This is a blog application where a user can:
 ## Technologies
 
 * Go
+* GoDotenv
 * GORM (Golang ORM)
 * Postgres
 * Mysql
@@ -28,6 +29,11 @@ You might be wondering seeing Postgres and Mysql. The API is built in a way that
 ---
 
 ## Spin it up!
+
+### Prepare
+```
+export GO111MODULE=on
+```
 
 ### Build
 ```
@@ -45,8 +51,11 @@ You might be wondering seeing Postgres and Mysql. The API is built in a way that
 
 ## Versions
 
-- [ ] 1.0 implementation
+- [ ] 1.0 implementation, clarification of doubts, code stabilization
 - [ ] 1.1 proper logging
+- [ ] 1.2 proper error handling
+- [ ] 1.3 improve structure
+- [ ] 1.4 try use testcontainers-go
 - [ ] 2.0 docker
 - [ ] 3.0 kubernetes
 
