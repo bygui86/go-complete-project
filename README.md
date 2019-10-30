@@ -45,22 +45,53 @@ export GO111MODULE=on
 
 ### Test
 ```
+# all
+go test -v ./...
+
+# models only
+cd tests/modeltests && go test -v && cd ../..
+
+# controllers only
+cd tests/controllertests && go test -v && cd ../..
+
+# specific one only
+go test -v --run TestFindAllUsers
+go test -v --run TestUpdatePost
+go test -v --run TestLogin
+go test -v --run TestCreateUser
 ```
 
 ---
 
 ## Versions
 
-- [ ] 1.0 implementation, clarification of doubts, code stabilization
-- [ ] 1.1 proper logging
-- [ ] 1.2 proper error handling
-- [ ] 1.3 improve structure
-- [ ] 1.4 try use testcontainers-go
+- [ ] 1.0 implementation, clarification of doubts
+- [ ] 1.1 implement db unit-testing using interface and mocks
+- [ ] 1.2 try use testcontainers-go for integration-testing
+- [ ] 1.3 proper logging
+- [ ] 1.4 proper error handling
+- [ ] 1.5 improve structure
 - [ ] 2.0 docker
 - [ ] 3.0 kubernetes
+- [ ] 3.1 kubernetes probes
+- [ ] 3.2 interrupt signals
+- [ ] 3.3 prometheus metrics
+- [ ] 3.4 TBD tracing
 
 ---
 
 ## Links
 
+* https://levelup.gitconnected.com/@victorsteven
+
+### Part 1 > Version 1.x
 * https://levelup.gitconnected.com/crud-restful-api-with-go-gorm-jwt-postgres-mysql-and-testing-460a85ab7121
+* https://github.com/victorsteven/Go-JWT-Postgres-Mysql-Restful-API
+
+### Part 2 > Version 2.x
+* https://levelup.gitconnected.com/dockerized-crud-restful-api-with-go-gorm-jwt-postgresql-mysql-and-testing-61d731430bd8
+* https://github.com/victorsteven/Dockerized-Golang-Postgres-Mysql-API
+
+### Part 3 > Version 3.x
+* https://levelup.gitconnected.com/deploying-dockerized-golang-api-on-kubernetes-with-postgresql-mysql-d190e27ac09f
+* https://github.com/victorsteven/Deploy-GO-GORM-PostgreSQL-MySQL-API-To-Kubernetes
