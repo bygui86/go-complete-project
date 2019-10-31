@@ -94,7 +94,7 @@ func TestUpdatePost(t *testing.T) {
 		Content:  "modiupdate@gmail.com",
 		AuthorID: post.AuthorID,
 	}
-	updatedPost, err := postUpdate.UpdateAPost(server.DB)
+	updatedPost, err := postUpdate.UpdatePost(server.DB)
 	if err != nil {
 		t.Errorf("this is the error updating the user: %v\n", err)
 		return
@@ -115,7 +115,7 @@ func TestDeletePost(t *testing.T) {
 	if err != nil {
 		log.Fatalf("Error Seeding tables")
 	}
-	isDeleted, err := postInstance.DeleteAPost(server.DB, post.ID, post.AuthorID)
+	isDeleted, err := postInstance.DeletePost(server.DB, post.ID, post.AuthorID)
 	if err != nil {
 		t.Errorf("this is the error updating the user: %v\n", err)
 		return

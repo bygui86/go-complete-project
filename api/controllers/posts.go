@@ -36,7 +36,7 @@ func (server *Server) CreatePost(w http.ResponseWriter, r *http.Request) {
 		responses.ERROR(w, http.StatusUnprocessableEntity, err)
 		return
 	}
-	uid, err := auth.ExtractTokenID(r)
+	uid, err := auth.ExtractUserID(r)
 	if err != nil {
 		responses.ERROR(w, http.StatusUnauthorized, errors.New("Unauthorized"))
 		return
@@ -90,7 +90,7 @@ func (server *Server) UpdatePost(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	// Check if the auth token is valid and  get the user id from it
-	uid, err := auth.ExtractTokenID(r)
+	uid, err := auth.ExtractUserID(r)
 	if err != nil {
 		responses.ERROR(w, http.StatusUnauthorized, errors.New("Unauthorized"))
 		return
@@ -133,7 +133,7 @@ func (server *Server) UpdatePost(w http.ResponseWriter, r *http.Request) {
 	}
 	// INFO: this is important to tell the model the post ID to update, the other update field are set above
 	postUpdate.ID = post.ID
-	postUpdated, err := postUpdate.UpdateAPost(server.DB)
+	postUpdated, err := postUpdate.UpdatePost(server.DB, uint64(pid))
 	if err != nil {
 		formattedError := formaterror.FormatError(err.Error())
 		responses.ERROR(w, http.StatusInternalServerError, formattedError)
@@ -151,7 +151,7 @@ func (server *Server) DeletePost(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	// Is this user authenticated?
-	uid, err := auth.ExtractTokenID(r)
+	uid, err := auth.ExtractUserID(r)
 	if err != nil {
 		responses.ERROR(w, http.StatusUnauthorized, errors.New("Unauthorized"))
 		return
@@ -168,7 +168,7 @@ func (server *Server) DeletePost(w http.ResponseWriter, r *http.Request) {
 		responses.ERROR(w, http.StatusUnauthorized, errors.New("Unauthorized"))
 		return
 	}
-	_, err = post.DeleteAPost(server.DB, pid, uid)
+	_, err = post.DeletePost(server.DB, pid, uid)
 	if err != nil {
 		responses.ERROR(w, http.StatusBadRequest, err)
 		return

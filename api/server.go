@@ -23,7 +23,7 @@ func Run() {
 		fmt.Println("We are getting the env values")
 	}
 	// init server
-	server.Initialize(
+	server.Init(
 		os.Getenv("DB_DRIVER"),
 		os.Getenv("DB_USER"),
 		os.Getenv("DB_PASSWORD"),
