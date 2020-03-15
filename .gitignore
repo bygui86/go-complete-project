@@ -30,7 +30,14 @@ Thumbs.db
 
 ###################### IDE configurations #######
 
-########### GoLand
+########### JetBrains
+.idea/
+.intellij/
+*.eml
+*.iws
+*.iml
+*.ipr
+out/
 
 ########### Visual Studio Code
 .vscode
@@ -41,7 +48,7 @@ Thumbs.db
 ###################### GoLang ###################
 
 ########### Binaries
-go-kubernetes-istio
+go-yaml
 *.exe
 *.exe~
 *.dll
@@ -51,7 +58,8 @@ go-kubernetes-istio
 ########### Test binaries
 *.test
 
-########### Go coverage tool output (LiteIDE)
+########### Go coverage tool output
 *.out
 
 ########### Project specific
+go-complete-project
